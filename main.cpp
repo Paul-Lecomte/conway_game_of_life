@@ -10,7 +10,7 @@ const int COLS = 40;
 const int DELAY_MS = 100;
 
 void displayGrid(const Grid& grid) {
-    system("clear");  // On Windows, use "cls"
+    system("cls");  // On mac/linux, use "clear"
     for (const auto& row : grid) {
         for (bool cell : row) {
             std::cout << (cell ? "█" : " ");
