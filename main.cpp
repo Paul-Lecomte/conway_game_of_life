@@ -2,6 +2,7 @@
 #include <vector>
 #include <chrono>
 #include <thread>
+#include <random>
 
 using Grid = std::vector<std::vector<bool>>;
 
@@ -31,6 +32,16 @@ Grid nextGeneration(const Grid& current) {
 
 int main() {
     Grid grid(ROWS, std::vector<bool>(COLS, false));
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::bernoulli_distribution dist(0.01); // 20% chance of a cell being alive
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            grid[i][j] = dist(gen);
+        }
+    }
+
 
     // TODO: Seed grid manually or randomly for now
     // e.g., grid[1][2] = true;
