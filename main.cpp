@@ -21,8 +21,18 @@ void displayGrid(const Grid& grid) {
 }
 
 int countLiveNeighbors(const Grid& grid, int row, int col) {
-    // You will implement this
-    return 0;
+    int count = 0;
+
+    for (int dr = -1; dr <= 1; ++dr) {
+        for (int dc = -1; dc <= 1; ++dc) {
+            // TODO: Skip the cell itself
+            // TODO: Calculate neighborRow and neighborCol
+            // TODO: Check if neighbor is inside grid bounds
+            // TODO: If neighbor is alive, increase count
+        }
+    }
+
+    return count;
 }
 
 Grid nextGeneration(const Grid& current) {
