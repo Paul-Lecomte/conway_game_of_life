@@ -14,7 +14,7 @@ void displayGrid(const Grid& grid) {
     system("cls");  // On mac/linux, use "clear"
     for (const auto& row : grid) {
         for (bool cell : row) {
-            std::cout << (cell ? "█" : " ");
+            std::cout << (cell ? "\033[1;32mO\033[0m" : " ");
         }
         std::cout << '\n';
     }
@@ -76,7 +76,7 @@ int main() {
 
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::bernoulli_distribution dist(0.02); // 20% chance of a cell being alive
+    std::bernoulli_distribution dist(0.2); // 20% chance of a cell being alive
     for (int i = 0; i < ROWS; ++i) {
         for (int j = 0; j < COLS; ++j) {
             grid[i][j] = dist(gen);
